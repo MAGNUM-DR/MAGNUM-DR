@@ -16,7 +16,7 @@ export const PACKAGES: BirthdayPackage[] = [
     badgeEmoji: '💎',
     title: 'صالة الـ VIP بالكامل',
     subtitle: 'حجز قاعة وصالة الـ VIP الحصرية بالكامل بتجهيز ديكور ملكي وإضاءة مخصصة',
-    image: './images/vip-hall.jpg', // 👈 مسار الصورة الصحيح
+    image: './images/photo_3_2026-09-21_06-08-46.jpg',
     price: 1500,
     currency: 'دينار',
     guestCount: '25 - 35 شخصاً',
@@ -48,7 +48,7 @@ export const PACKAGES: BirthdayPackage[] = [
     badgeEmoji: '👑',
     title: 'طاولة الـ VIP - ديكور كامل',
     subtitle: 'تشمل ديكور كامل مع إمكانية اختيار اللون وحتى 10 أشخاص',
-    image: './images/package-1.jpg', // 👈 مسار الصورة الصحيح
+    image: './images/photo_1_2026-09-21_06-08-46.jpg',
     price: 750,
     currency: 'دينار',
     guestCount: 10,
@@ -79,7 +79,7 @@ export const PACKAGES: BirthdayPackage[] = [
     badgeEmoji: '🎈',
     title: 'طاولة الـ VIP - ديكور عادي',
     subtitle: 'تشمل ديكور عادي أنيق وعدد الأشخاص 4',
-    image: './images/package-2.jpg', // 👈 مسار الصورة الصحيح
+    image: './images/photo_2026-09-19_08-12-22.jpg',
     price: 500,
     currency: 'دينار',
     guestCount: 4,
@@ -101,7 +101,7 @@ export const PACKAGES: BirthdayPackage[] = [
     badgeEmoji: '✨',
     title: 'طاولة الـ VIP - تجهيز فقط',
     subtitle: 'تشمل تجهيز الطاولة فقط بدون ديكور (عدد الأشخاص: 4)',
-    image: './images/package-3.jpg', // 👈 مسار الصورة الصحيح
+    image: './images/photo_2026-09-19_08-12-33.jpg',
     price: 250,
     currency: 'دينار',
     guestCount: 4,
