@@ -1,0 +1,8 @@
+{
+  "name": "Remix ماغنوم - باقات أعياد الميلاد",
+  "description": "تطبيق حجز باقات أعياد الميلاد في ماغنوم مع  تأكيد الحجز المباشر.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
