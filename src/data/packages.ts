@@ -119,3 +119,4 @@ export const PACKAGES: BirthdayPackage[] = [
     accentColor: '#EAB308',
   },
 ];
+
