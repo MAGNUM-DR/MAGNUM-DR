@@ -1,141 +1,78 @@
 import React from 'react';
-import { MessageCircle, Phone } from 'lucide-react';
 
-interface DesignerFooterProps {
-  onOpenBooking: () => void;
-  onScrollToTop: () => void;
-  venueLogo?: string | null;
-  designerLogo?: string | null;
-}
-
-export const DesignerFooter: React.FC<DesignerFooterProps> = ({
-  onOpenBooking,
-  onScrollToTop,
-  venueLogo,
-  designerLogo,
-}) => {
+export const DesignerFooter: React.FC = () => {
   return (
-    <footer className="border-t border-stone-800 bg-stone-950 text-stone-300 pt-10 pb-8 px-4 sm:px-6 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto">
-        {/* Brand & Designer Attribution Section */}
-        <div className="p-6 rounded-3xl bg-stone-900/80 border-2 border-amber-500/30 mb-8 shadow-lg">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            
-            {/* 1. Magnum Venue Info */}
-            <div className="flex items-center gap-4 border-b md:border-b-0 md:border-l border-stone-800 pb-5 md:pb-0 md:pl-6">
-              <div className="relative group shrink-0">
-                {venueLogo ? (
-                  <img
-                    src={venueLogo}
-                    alt="لوجو صالة MAGNUM"
-                    className="w-14 h-14 rounded-2xl object-cover border-2 border-amber-400 shadow-md"
-                  />
-                ) : (
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-400 text-stone-950 flex items-center justify-center font-black text-2xl shadow-lg border border-amber-300">
-                    M
-                  </div>
-                )}
+    <footer className="w-full bg-black/95 text-white py-8 px-4 border-t border-amber-500/20">
+      <div className="max-w-6xl mx-auto border border-amber-500/30 rounded-2xl p-6 bg-zinc-900/60 backdrop-blur-sm">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 dir-rtl">
+          
+          {/* قسم ماغنوم - اليمين */}
+          <div className="flex items-center gap-4 w-full md:w-auto justify-between md:justify-start">
+            <img 
+              src="./images/photo_2026-09-25_03-54-35.jpg" 
+              alt="شعار ماغنوم" 
+              className="w-16 h-16 rounded-full object-cover border-2 border-amber-500 shadow-md"
+            />
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <span className="text-xl font-extrabold text-white">صالة MAGNUM</span>
+                <span className="bg-amber-500/20 text-amber-400 text-xs px-2 py-0.5 rounded-full border border-amber-500/30">
+                  المكان الرسمي
+                </span>
               </div>
-
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="text-lg font-black text-white">صالة MAGNUM</span>
-                  <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-bold">
-                    المكان الرسمي
-                  </span>
-                </div>
-                <p className="text-xs text-stone-400 mt-1">
-                  أرقى حفلات أعياد الميلاد والجلسات الملوكية، احتفالك يبدأ من MAGNUM.
-                </p>
-                <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
-                  <a
-                    href="tel:0930279675"
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 transition"
-                  >
-                    <Phone className="w-3 h-3 text-amber-400" />
-                    <span className="font-mono font-bold tracking-wider">0930279675</span>
-                  </a>
-
-                  <a
-                    href="https://wa.me/218930279675?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20MAGNUM%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AD%D8%AC%D8%B2%20%D8%B9%D9%8A%D8%AF%20%D9%85%D9%8A%D9%84%D8%A7%D8%AF"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 px-3 py-1 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-400 border border-emerald-500/30 transition font-bold"
-                  >
-                    <MessageCircle className="w-3 h-3" />
-                    <span>واتساب الحجز</span>
-                  </a>
-                </div>
+              <p className="text-xs text-zinc-400">
+                أرقى حفلات أعياد الميلاد والجلسات الملوكيه، احتفالك يبدأ من MAGNUM.
+              </p>
+              <div className="flex items-center gap-2 pt-1">
+                <a 
+                  href="https://wa.me/218930279675" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 text-xs px-3 py-1 rounded-full border border-emerald-500/30 flex items-center gap-1 transition"
+                >
+                  واتساب الحجز
+                </a>
+                <span className="text-xs text-amber-400 font-mono bg-zinc-800 px-2 py-1 rounded-full border border-zinc-700">
+                  0930279675
+                </span>
               </div>
             </div>
+          </div>
 
-            {/* 2. Designer Accreditation: DR \ MOHAMED FARES */}
-            <div className="flex items-center gap-4 md:pr-4">
-              <div className="relative group shrink-0">
-                {designerLogo ? (
-                  <img
-                    src={designerLogo}
-                    alt="لوجو DR MOHAMED FARES"
-                    className="w-14 h-14 rounded-2xl object-cover border-2 border-amber-400 shadow-md"
-                  />
-                ) : (
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-stone-800 to-stone-700 border-2 border-amber-500/60 text-amber-400 flex items-center justify-center font-black text-xl shadow-md">
-                    DR
-                  </div>
-                )}
+          {/* خط فاصل بين القسمين */}
+          <div className="hidden md:block w-px h-16 bg-zinc-800"></div>
+
+          {/* قسم المطور - اليسار */}
+          <div className="flex items-center gap-4 w-full md:w-auto justify-between md:justify-start">
+            <img 
+              src="./images/my-logo.png" 
+              alt="شعار المطور" 
+              className="w-14 h-14 rounded-xl object-cover border border-amber-500/40 p-1 bg-zinc-800"
+            />
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-amber-400 font-semibold">تصميم وتطوير النظام:</span>
+                <span className="bg-zinc-800 text-zinc-400 text-xs px-2 py-0.5 rounded-full border border-zinc-700">
+                  حقوق معتمدة
+                </span>
               </div>
-
-              <div className="flex-1">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs text-amber-400 font-bold">تصميم وتطوير النظام:</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-md bg-stone-800 text-stone-300 border border-stone-700">
-                    حقوق معتمدة
-                  </span>
-                </div>
-
-                <h5 className="text-lg font-black text-white mt-0.5 tracking-wide">
-                  DR\ MOHAMED FARES
-                </h5>
-
-                {/* Direct Phone & WhatsApp */}
-                <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
-                  <a
-                    href="tel:0943326462"
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-stone-950 hover:bg-stone-800 text-stone-200 border border-stone-700 hover:border-amber-400 transition"
-                  >
-                    <Phone className="w-3 h-3 text-amber-400" />
-                    <span className="font-mono font-bold tracking-wider">0943326462</span>
-                  </a>
-
-                  <a
-                    href="https://wa.me/218943326462?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20DR%5C%20MOHAMED%20FARES"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 px-3 py-1 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-400 border border-emerald-500/30 transition font-bold"
-                  >
-                    <MessageCircle className="w-3 h-3" />
-                    <span>تواصل واتساب</span>
-                  </a>
-                </div>
+              <h4 className="text-sm font-bold text-white tracking-wide">DR\ MOHAMED FARES</h4>
+              <div className="flex items-center gap-2 pt-1">
+                <span className="text-xs text-amber-400 font-mono bg-zinc-800 px-2 py-1 rounded-full border border-zinc-700">
+                  0943326462
+                </span>
+                <a 
+                  href="https://wa.me/218943326462" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 text-xs px-3 py-1 rounded-full border border-emerald-500/30 flex items-center gap-1 transition"
+                >
+                  تواصل واتساب
+                </a>
               </div>
             </div>
-
           </div>
-        </div>
 
-        {/* Footer Bottom Bar */}
-        <div className="border-t border-stone-900 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-stone-500 text-center sm:text-right">
-          <p>© {new Date().getFullYear()} صالة MAGNUM - جميع الحقوق محفوظة.</p>
-          <div className="flex items-center gap-4">
-            <button
-              onClick={onScrollToTop}
-              className="text-amber-400/80 hover:text-amber-300 transition cursor-pointer font-bold"
-            >
-              العودة للأعلى ⬆️
-            </button>
-            <span>•</span>
-            <span className="text-stone-400 font-medium">تصميم: DR\ MOHAMED FARES (0943326462)</span>
-          </div>
         </div>
       </div>
     </footer>
