@@ -28,7 +28,7 @@ export const PackageCard: React.FC<PackageCardProps> = ({
 
   // Only use user's uploaded images; no default stock images
   const hasCustomImages = customImages && customImages.length > 0;
-  const coverImage = hasCustomImages ? customImages[0] : pkg.image;
+  const coverImage = hasCustomImages ? customImages[0] : null;
   const totalPhotos = customImages.length;
 
   return (
@@ -89,7 +89,7 @@ export const PackageCard: React.FC<PackageCardProps> = ({
 
       <div>
         {/* Real Photography Card Image Frame - Full Portrait Display (الصورة كاملة بالطول) */}
-        {coverImage ? (
+        {hasCustomImages && coverImage ? (
           <div
             onClick={() => onOpenGallery(pkg)}
             className="relative w-full aspect-[3/4] max-h-[460px] overflow-hidden bg-stone-950 group cursor-pointer border-b border-stone-800/80 flex items-center justify-center"
