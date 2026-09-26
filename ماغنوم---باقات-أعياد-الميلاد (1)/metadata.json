@@ -1,0 +1,6 @@
+{
+  "name": "MAGNUM - باقات أعياد الميلاد",
+  "description": "تطبيق حجز باقات أعياد الميلاد في MAGNUM مع التعليق الصوتي الإعلاني الحماسي باللهجة المصرية وحاسبة الأسعار وتأكيد الحجز المباشر.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
