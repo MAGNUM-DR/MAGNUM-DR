@@ -1,8 +1,5 @@
 import { Package } from '../types';
 
-// هذا المتغير يجلب مسار الموقع الصحيح تلقائياً على GitHub Pages
-const BASE_URL = import.meta.env.BASE_URL;
-
 export const packages: Package[] = [
   {
     id: 'package-vip-all',
@@ -10,7 +7,7 @@ export const packages: Package[] = [
     badgeEmoji: '👑',
     title: 'تجهيز صالة الـ VIP بالكامل',
     subtitle: 'شاملة الحجز والتجهيز الفاخر لـ 15 شخص',
-    image: `${BASE_URL}images/photo_3_2026-09-21_06-08-46.jpg`,
+    image: '/MAGNUM-DR/images/photo_3_2026-09-21_06-08-46.jpg',
     price: 600,
     currency: 'دينار',
     guestCount: 15,
@@ -33,7 +30,7 @@ export const packages: Package[] = [
     badgeEmoji: '⭐',
     title: 'تجهيز طاولة الـ VIP - ديكور كامل',
     subtitle: 'تشمل تجهيز الطاولة بالديكور (عدد الأشخاص: 4)',
-    image: `${BASE_URL}images/photo_1_2026-09-21_06-08-46.jpg`,
+    image: '/MAGNUM-DR/images/photo_1_2026-09-21_06-08-46.jpg',
     price: 350,
     currency: 'دينار',
     guestCount: 4,
@@ -56,7 +53,7 @@ export const packages: Package[] = [
     badgeEmoji: '✨',
     title: 'تجهيز طاولة الـ VIP - ديكور عادي',
     subtitle: 'تشمل تجهيز الطاولة مع ديكور خفيف (عدد الأشخاص: 4)',
-    image: `${BASE_URL}images/photo_2026-09-19_08-12-22.jpg`,
+    image: '/MAGNUM-DR/images/photo_2026-09-19_08-12-22.jpg',
     price: 300,
     currency: 'دينار',
     guestCount: 4,
@@ -79,7 +76,7 @@ export const packages: Package[] = [
     badgeEmoji: '✨',
     title: 'تجهيز طاولة الـ VIP - تجهيز فقط',
     subtitle: 'تشمل تجهيز الطاولة فقط بدون ديكور (عدد الأشخاص: 4)',
-    image: `${BASE_URL}images/photo_2026-09-19_08-12-33.jpg`,
+    image: '/MAGNUM-DR/images/photo_2026-09-19_08-12-33.jpg',
     price: 250,
     currency: 'دينار',
     guestCount: 4,
