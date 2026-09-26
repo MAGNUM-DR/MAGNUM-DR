@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
   X,
-  Send,
   Calendar,
   Clock,
   CheckCircle2,
@@ -13,9 +12,18 @@ import {
 } from 'lucide-react';
 import { PACKAGES } from '../data/packages';
 
+const DEFAULT_COLOR_OPTIONS = [
+  'ذهبي ملكي (Royal Gold)',
+  'وردي وأبيض (Pink & White)',
+  'أزرق ملكي (Royal Blue)',
+  'أسود وذهبي (Black & Gold)',
+  'فضي وأبيض (Silver & White)',
+  'اختيار لون على ذوقك',
+];
+
 interface BookingModalProps {
   isOpen: boolean;
-  initialPackageId: 'package-vip-hall' | 'package-1' | 'package-2' | 'package-3';
+  initialPackageId: string;
   initialColorName?: string;
   onClose: () => void;
 }
@@ -26,14 +34,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   initialColorName,
   onClose,
 }) => {
-  const [selectedPkgId, setSelectedPkgId] = useState<'package-vip-hall' | 'package-1' | 'package-2' | 'package-3'>(
-    initialPackageId || 'package-vip-hall'
+  const [selectedPkgId, setSelectedPkgId] = useState<string>(
+    initialPackageId || 'package-vip-all'
   );
   const [celebrantName, setCelebrantName] = useState('');
   const [contactPhone, setContactPhone] = useState('');
   const [bookingDate, setBookingDate] = useState('');
   const [bookingTime, setBookingTime] = useState('08:00 مساءً');
-  const [selectedColor, setSelectedColor] = useState(initialColorName || 'ذهبي ملكي (Royal Gold)');
+  const [selectedColor, setSelectedColor] = useState(initialColorName || DEFAULT_COLOR_OPTIONS[0]);
   const [customColorDetail, setCustomColorDetail] = useState('');
   const [notes, setNotes] = useState('');
   const [copied, setCopied] = useState(false);
@@ -68,6 +76,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
   const currentPkg = PACKAGES.find((p) => p.id === selectedPkgId) || PACKAGES[0];
   const totalPrice = currentPkg.price;
+  const availableColors = (currentPkg as any).colorOptions || DEFAULT_COLOR_OPTIONS;
 
   const buildMessage = () => {
     let msg = `*طلب تأكيد حجز عيد ميلاد في MAGNUM* 🎉✨\n`;
@@ -111,7 +120,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
   const handleSendDirectMessage = () => {
     const text = encodeURIComponent(buildMessage());
-    // Directly redirect to WhatsApp number 0930279675 (International +218930279675)
     const phone = '218930279675';
     const url = `https://wa.me/${phone}?text=${text}`;
     window.open(url, '_blank');
@@ -131,7 +139,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md overflow-y-auto"
     >
       <div className="relative w-full max-w-lg bg-stone-900 border-2 border-amber-500/50 rounded-3xl p-5 sm:p-7 shadow-2xl my-6 sm:my-8 text-right">
-        {/* Close Button - Highly Visible with icon and text badge */}
+        {/* Close Button */}
         <button
           onClick={onClose}
           type="button"
@@ -170,9 +178,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   type="button"
                   onClick={() => {
                     setSelectedPkgId(pkg.id);
-                    if (pkg.colorOptions && pkg.colorOptions.length > 0) {
-                      setSelectedColor(pkg.colorOptions[0]);
-                    }
                   }}
                   className={`p-2 rounded-xl border text-center transition cursor-pointer ${
                     selectedPkgId === pkg.id
@@ -182,14 +187,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 >
                   <span className="block text-base sm:text-lg">{pkg.badgeEmoji}</span>
                   <span className="block text-[10px] sm:text-[11px] font-bold mt-0.5 truncate">{pkg.badge}</span>
-                  <span className="block text-xs text-amber-400 font-extrabold">{pkg.price} د.أ</span>
+                  <span className="block text-xs text-amber-400 font-extrabold">{pkg.price} د.ل</span>
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Color Selection if chosen package supports it */}
-          {currentPkg.hasColorChoice && currentPkg.colorOptions && (
+          {/* Color Selection */}
+          {currentPkg.hasColorChoice && (
             <div>
               <label className="block text-xs font-bold text-stone-300 mb-1.5">
                 لون وثيم الديكور المفضل:
@@ -199,7 +204,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 onChange={(e) => setSelectedColor(e.target.value)}
                 className="w-full px-3 py-2.5 rounded-xl bg-stone-950 border border-stone-800 text-white text-xs sm:text-sm focus:outline-none focus:border-amber-500 cursor-pointer"
               >
-                {currentPkg.colorOptions.map((c) => (
+                {availableColors.map((c: string) => (
                   <option key={c} value={c}>
                     {c}
                   </option>
@@ -209,7 +214,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               {selectedColor.includes('اختيار لون على ذوقك') && (
                 <div className="mt-2.5 p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30">
                   <label className="block text-[11px] font-bold text-amber-300 mb-1">
-                    اكتب اللون أو التنسيق المطلوب على ذوقك (اختياري):
+                    اكتب اللون أو التنسيق المطلوب على ذوقك:
                   </label>
                   <input
                     type="text"
@@ -243,7 +248,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               </label>
               <input
                 type="tel"
-                placeholder="079xxxxxxx"
+                placeholder="091xxxxxxx"
                 value={contactPhone}
                 onChange={(e) => setContactPhone(e.target.value)}
                 className="w-full px-3 py-2 rounded-xl bg-stone-950 border border-stone-800 text-white text-xs sm:text-sm focus:outline-none focus:border-amber-500"
@@ -329,7 +334,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               )}
             </button>
 
-            {/* Clear Close / Return Button */}
             <button
               onClick={onClose}
               type="button"
