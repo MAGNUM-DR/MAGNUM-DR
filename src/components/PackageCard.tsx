@@ -28,7 +28,7 @@ export const PackageCard: React.FC<PackageCardProps> = ({
 
   // Only use user's uploaded images; no default stock images
   const hasCustomImages = customImages && customImages.length > 0;
-  const coverImage = hasCustomImages ? customImages[0] : null;
+  const coverImage = hasCustomImages ? customImages[0] : pkg.image;
   const totalPhotos = customImages.length;
 
   return (
