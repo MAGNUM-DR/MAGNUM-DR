@@ -1,6 +1,6 @@
 import { Package } from '../types';
 
-export const packages: Package[] = [
+export const PACKAGES: Package[] = [
   {
     id: 'package-vip-all',
     badge: 'الباقة الأولى',
