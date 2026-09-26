@@ -89,7 +89,7 @@ export const PackageCard: React.FC<PackageCardProps> = ({
 
       <div>
         {/* Real Photography Card Image Frame - Full Portrait Display (الصورة كاملة بالطول) */}
-        {hasCustomImages && coverImage ? (
+        {coverImage ? (
           <div
             onClick={() => onOpenGallery(pkg)}
             className="relative w-full aspect-[3/4] max-h-[460px] overflow-hidden bg-stone-950 group cursor-pointer border-b border-stone-800/80 flex items-center justify-center"
